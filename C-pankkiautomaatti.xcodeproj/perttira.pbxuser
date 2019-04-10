@@ -1,0 +1,294 @@
+// !$*UTF8*$!
+{
+	08FB7793FE84155DC02AAC07 /* Project object */ = {
+		activeArchitecturePreference = x86_64;
+		activeBuildConfigurationName = Debug;
+		activeExecutable = 27156A3F130E4AC200B7CB7A /* C-pankkiautomaatti */;
+		activeTarget = 8DD76FA90486AB0100D96B5E /* C-pankkiautomaatti */;
+		breakpoints = (
+			275BD88B14C9C65A002DCC4F /* main.c:12 */,
+			275BD88D14C9C65F002DCC4F /* main.c:12 */,
+		);
+		codeSenseManager = 27156A44130E4AE100B7CB7A /* Code sense */;
+		executables = (
+			27156A3F130E4AC200B7CB7A /* C-pankkiautomaatti */,
+		);
+		perUserDictionary = {
+			"PBXConfiguration.PBXBreakpointsDataSource.v1:1CA1AED706398EBD00589147" = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXBreakpointsDataSource_BreakpointID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					20,
+					198,
+					20,
+					99,
+					99,
+					29,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXBreakpointsDataSource_ActionID,
+					PBXBreakpointsDataSource_TypeID,
+					PBXBreakpointsDataSource_BreakpointID,
+					PBXBreakpointsDataSource_UseID,
+					PBXBreakpointsDataSource_LocationID,
+					PBXBreakpointsDataSource_ConditionID,
+					PBXBreakpointsDataSource_IgnoreCountID,
+					PBXBreakpointsDataSource_ContinueID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXBookmarksDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXBookmarksDataSource_NameID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					200,
+					200,
+					399.58349609375,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXBookmarksDataSource_LocationID,
+					PBXBookmarksDataSource_NameID,
+					PBXBookmarksDataSource_CommentsID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXExecutablesDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXExecutablesDataSource_NameID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					22,
+					300,
+					478,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXExecutablesDataSource_ActiveFlagID,
+					PBXExecutablesDataSource_NameID,
+					PBXExecutablesDataSource_CommentsID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Built_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					836,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXSymbolsDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXSymbolsDataSource_SymbolNameID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					16,
+					200,
+					50,
+					530,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXSymbolsDataSource_SymbolTypeIconID,
+					PBXSymbolsDataSource_SymbolNameID,
+					PBXSymbolsDataSource_SymbolTypeID,
+					PBXSymbolsDataSource_ReferenceNameID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 360182717;
+			PBXWorkspaceStateSaveDate = 360182717;
+		};
+		perUserProjectItems = {
+			2713E11B14F5682F00D53146 /* PBXTextBookmark */ = 2713E11B14F5682F00D53146 /* PBXTextBookmark */;
+			277E46E41577F3D50009FE7B /* PBXTextBookmark */ = 277E46E41577F3D50009FE7B /* PBXTextBookmark */;
+			27B0753214F563B70013DF83 /* PBXTextBookmark */ = 27B0753214F563B70013DF83 /* PBXTextBookmark */;
+			27DA2F571546C582005DDF68 /* PBXTextBookmark */ = 27DA2F571546C582005DDF68 /* PBXTextBookmark */;
+		};
+		sourceControlManager = 27156A43130E4AE100B7CB7A /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	08FB7796FE84155DC02AAC07 /* main.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1014, 7709}}";
+			sepNavSelRange = "{1366, 0}";
+			sepNavVisRange = "{1677, 694}";
+			sepNavWindowFrame = "{{15, 1335}, {750, 558}}";
+		};
+	};
+	2713E11B14F5682F00D53146 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = C6A0FF2C0290799A04C91782 /* C-pankkiautomaatti.1 */;
+		name = "C-pankkiautomaatti.1: 519";
+		rLen = 0;
+		rLoc = 10761;
+		rType = 0;
+		vrLen = 487;
+		vrLoc = 10274;
+	};
+	27156A3F130E4AC200B7CB7A /* C-pankkiautomaatti */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = "C-pankkiautomaatti";
+		savedGlobals = {
+		};
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+		variableFormatDictionary = {
+			$cs = 1;
+			$ds = 1;
+			$eflags = 1;
+			$es = 1;
+			$fs = 1;
+			$gs = 1;
+			$r10 = 1;
+			$r11 = 1;
+			$r12 = 1;
+			$r13 = 1;
+			$r14 = 1;
+			$r15 = 1;
+			$r8 = 1;
+			$r9 = 1;
+			$rax = 1;
+			$rbp = 1;
+			$rbx = 1;
+			$rcx = 1;
+			$rdi = 1;
+			$rdx = 1;
+			$rip = 1;
+			$rsi = 1;
+			$rsp = 1;
+			$ss = 1;
+		};
+	};
+	27156A43130E4AE100B7CB7A /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	27156A44130E4AE100B7CB7A /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	275BD88B14C9C65A002DCC4F /* main.c:12 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 08FB7796FE84155DC02AAC07 /* main.c */;
+		functionName = "main()";
+		hitCount = 1;
+		ignoreCount = 0;
+		lineNumber = 12;
+		location = "C-pankkiautomaatti";
+		modificationTime = 351627243.3508639;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	275BD88D14C9C65F002DCC4F /* main.c:12 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 08FB7796FE84155DC02AAC07 /* main.c */;
+		functionName = "main()";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 12;
+		location = "C-pankkiautomaatti";
+		modificationTime = 351627243.195935;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	277625E114F5639C00AEB95E /* versio1.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = versio1.c;
+		path = "/Users/perttira/Documents/C-pankkiautomaatti/versionhallinta/versio1.c";
+		sourceTree = "<absolute>";
+	};
+	277E46E41577F3D50009FE7B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 08FB7796FE84155DC02AAC07 /* main.c */;
+		name = "main.c: 57";
+		rLen = 0;
+		rLoc = 1366;
+		rType = 0;
+		vrLen = 694;
+		vrLoc = 1677;
+	};
+	27B0753214F563B70013DF83 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 277625E114F5639C00AEB95E /* versio1.c */;
+		name = "versio1.c: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 834;
+		vrLoc = 7115;
+	};
+	27DA2F571546C582005DDF68 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 08FB7796FE84155DC02AAC07 /* main.c */;
+		name = "main.c: 57";
+		rLen = 0;
+		rLoc = 1366;
+		rType = 0;
+		vrLen = 758;
+		vrLoc = 884;
+	};
+	8DD76FA90486AB0100D96B5E /* C-pankkiautomaatti */ = {
+		activeExec = 0;
+		executables = (
+			27156A3F130E4AC200B7CB7A /* C-pankkiautomaatti */,
+		);
+	};
+	C6A0FF2C0290799A04C91782 /* C-pankkiautomaatti.1 */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1113, 4901}}";
+			sepNavSelRange = "{10761, 0}";
+			sepNavVisRange = "{10274, 487}";
+		};
+	};
+}

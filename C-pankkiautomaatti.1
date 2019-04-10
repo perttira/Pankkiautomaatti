@@ -1,0 +1,518 @@
+#include <stdio.h>
+#include <ctype.h>
+#include <string.h>
+#include <stdlib.h>
+
+#define BUFFER_SIZE 255
+
+//int withdraw(int tilinumero, char summa[]);
+void copySMirror(char * s1, char * s2);
+void emptyBuffer(void);
+int tarkistaSyote(const char syote[],int MAX);
+void reverseString(char* begin);
+void ohjeet();
+void luoTilit();
+int nollanPaikka = ((int)'0');
+int ysinPaikka = ((int)'9');
+int onkoTiliOlemassa(int tilinumero);
+int nostaRahaa(int tilinumero, char summa[]);
+void talletaRahaa(int tilinumero, char summa[]);
+void tulostaSaldo(int tilinumero);
+int vahennys(char vanhaSumma[], char nostoSumma[],int tilinumero);
+void alustaTaulu(char* begin);
+void trimLeadingZeros(char numero[]);
+
+typedef struct tiliStruct {
+	int tilinumero;
+	char saldo[BUFFER_SIZE];
+} tiliMalli;
+
+
+int main (void){
+	
+	int tilinumero;
+	int lopetus = 1;
+	int syote;
+	int tilinumeronPituus = 4;
+	char summa[BUFFER_SIZE];
+	
+	
+	
+	alustaTaulu(summa);
+	
+	
+	
+	//luoTilit();   //OTA KÄYTTÖÖN!!!
+	
+	//    printf("Anna nelinumeroinen tilinumero: \n");	
+	//	scanf("%d", &tilinumero);
+	//	printf("%d\n", tilinumero);
+	//	emptyBuffer();
+	
+	tilinumero = 1234; //poista
+	
+	//	while(!onkoTiliOlemassa(tilinumero)){
+	//		printf("Tilia ei loytynyt!\n");
+	//		printf("Anna tilinumero uudestaan :");
+	//		scanf("%d", &tilinumero);
+	//	} //if */
+	
+	
+	printf("Tili loytyi...\n");
+	
+	
+	
+	while(lopetus){
+		
+		ohjeet();		
+		scanf("%d", &syote);
+		printf("%d\n",syote);
+		printf("syote otettu ja printattu\n");
+				
+		switch ( syote ) {
+			case  1:
+				
+				printf("Ollan nosto (1) casessa \n");
+				printf("Paljonko haluat nostaa? \n");
+				printf(": ");
+				scanf("%s",summa);
+				int tulos;
+				int i;
+				tulos = nostaRahaa(tilinumero,summa);
+				if (tulos == 1) {
+					printf("Tilillä ei rahaa\n");
+				} else if (tulos == 0) {
+					printf("Talletetaan tulos");
+				}
+				
+				break;
+			case  2:
+				//talleta
+				printf("Ollan talletus (2) casessa \n");
+				printf("Paljonko haluat tallettaa? \n");
+				printf(": ");
+				scanf("%s",summa);
+				talletaRahaa(tilinumero,summa);
+				break;
+			case  3:
+				//saldo
+				printf("Ollan saldo (3) casessa \n");
+				tulostaSaldo(tilinumero);
+				break;
+			case  0:
+				//lopeta
+				printf("Ollan lopetus (0) casessa \n");
+				printf("Ohjelma lopetetaan \n");
+				lopetus = 0;
+				break;
+		} 
+		
+		void emptyBuffer(void);
+		
+	} //while
+	
+	
+	
+	printf("Koodin lopussa");
+	
+	return(0);
+	
+} //main
+
+void ohjeet(){
+	
+	printf( "Valise toiminto:\n 1 - Nosto\n 2 - Talleta\n 3 - Saldo\n 0 - Lopeta\n Valitasi: " );
+	
+}
+
+/***
+ * luoTilit metodi luo tilit .tili tiedostoihin
+ ***/
+void luoTilit(){
+	
+	FILE *outfilep;
+	int i;
+	printf("luoTilit metodissa!\n");
+	
+	int tilinumero1 = 1234;
+    int tilinumero2 = 4321;
+    int tilinumero3 = 5678;
+    int tilinumero4 = 8765;
+	char saldo [BUFFER_SIZE];
+	
+	alustaTaulu(saldo);
+	
+	
+	//printf("Tulostetaan saldo %d\n", saldo);
+	printf("Tulostetaan saldo\n");
+	
+	for (i=0; i<sizeof(saldo);i++) {
+		printf("%s", saldo[i]);
+	} 
+	
+	outfilep = fopen("1234.tili","w+");
+	fprintf(outfilep,"%d\n%s\n",tilinumero1,saldo);
+	fclose(outfilep);
+	
+	outfilep = fopen("4321.tili","w+");
+	fprintf(outfilep,"%d\n%s\n",tilinumero2,saldo);
+	fclose(outfilep);
+	
+	outfilep = fopen("5678.tili","w+");
+	fprintf(outfilep,"%d\n%s\n",tilinumero3,saldo);
+	fclose(outfilep);
+	
+	outfilep = fopen("8765.tili","w+");
+	fprintf(outfilep,"%d\n%s\n",tilinumero4,saldo);
+	fclose(outfilep);
+	
+	
+	return;
+} // luoTilit
+
+/***
+ * onkoTiliOlemassa tarkistaa onko haettu tili olemassa
+ ***/
+int onkoTiliOlemassa(int tilinumero){
+	
+	FILE *infilep;
+	int i;
+	int totuus = 0;
+	tiliMalli tilit[4];
+	
+	
+	
+	
+	if((infilep=fopen("1234.tili","r"))==NULL){
+		printf("\nTiedoston avaaminen epaonnistui");
+	}else{
+		fscanf(infilep,"%d%s",&tilit[0].tilinumero,tilit[0].saldo);
+	} // else
+	
+	if((infilep=fopen("5678.tili","r"))==NULL){
+		printf("\nTiedoston avaaminen epaonnistui");
+	}else{
+		fscanf(infilep,"%d%s",&tilit[1].tilinumero,tilit[1].saldo);
+	} // else
+	
+	if((infilep=fopen("8765.tili","r"))==NULL){
+		printf("\nTiedoston avaaminen epaonnistui");
+	}else{
+		fscanf(infilep,"%d%s",&tilit[2].tilinumero,tilit[2].saldo);
+	} // else
+	
+	if((infilep=fopen("4321.tili","r"))==NULL){
+		printf("\nTiedoston avaaminen epaonnistui");
+	}else{
+		fscanf(infilep,"%d%s",&tilit[3].tilinumero,tilit[3].saldo);
+	} // else
+	
+	fclose(infilep);
+	
+	for(i=0; i<4 ; i++){
+		if(tilit[i].tilinumero == tilinumero){
+			printf("totuus = 1");
+			totuus = 1;
+			return(totuus);
+		}else{
+			
+			totuus =0;
+			return(totuus);
+		} //else
+	}//for
+	
+} //onkoTiliOlemassa
+
+
+int nostaRahaa(int tilinumero, char summa[]) {
+	
+	FILE *infilep, *outfilep;
+	char tiliString[10];                    // talletetaan avattavan tilin nimi (esim 1234.tili) sprintf() funktiolla
+	char avatunTilinSaldo[BUFFER_SIZE];
+	int avatunTilinTilinumero;
+	alustaTaulu(avatunTilinSaldo);
+	sprintf(tiliString, "%d.tili", tilinumero);
+	
+	
+	if((infilep=fopen(tiliString,"r+"))==NULL){
+		printf("\nTiedoston avaaminen epaonnistui");
+	}else{
+		fscanf(infilep,"%d%s",&avatunTilinTilinumero,avatunTilinSaldo);
+	} // else
+	
+	fclose(infilep);
+	
+	/* printf("\n tulostetaan tilin tiedot\n");
+	
+	printf("%d\n",avatunTilinTilinumero);
+	printf("%s\n",avatunTilinSaldo);
+	
+	reverseString(avatunTilinSaldo);
+	reverseString(summa);
+	
+	printf("\n tulostetaan reversestringit\n");
+	printf("%s\n", avatunTilinSaldo);
+	printf("%s\n", summa);  */
+	
+	
+	char summattuTaulukko[BUFFER_SIZE];
+	alustaTaulu(summattuTaulukko);      // Alustetaan taulukko NULL:iksi
+	
+	int avatunPituus,summanPituus, pienempi,k;
+	
+	int lainaus = 0;
+	int tulos;
+	int ekaluku, tokaluku;
+	
+	summanPituus = strlen(summa);
+	avatunPituus = strlen(avatunTilinSaldo);
+	
+
+
+	if (temp[0] == '0') { // jos nostettava summa on 0 niin ei nosteta mitään
+		printUI(19);
+		return(0);
+	}
+	else {
+		i = strlen(avatunTilinSaldo);
+		l = strlen(temp3);
+		copySMirror(temp2, avatunTilinSaldo); // kopioidaan tPflichtfeldemp2 tauluun tilin summa käänteisesti
+		copySMirror(temp3, summa);    // kopioidaan temp3 tauluun nostettava summa käänteisesti
+		l = strlen(temp3)-1;   // nostettavan summan taulukon yksiköiden lukumäärä -1 ???
+		printWAmount(temp);
+		for (k = 0; k<i; k++) { 
+			if (l < k) {                
+				temp3[k] = '0';         // täytetään ylimenevät osat nollalla?
+			}
+			summa[k] = ((((int)temp2[k])-48)-(((int)temp3[k])-48)-R);
+			if ((int)summa[k] < 0) {
+				summa[k] = ((char)summa[k]+10)+48;
+				R = 1;
+			}
+			else {
+				summa[k] = (char)summa[k]+48;
+				R = 0;
+			}
+		}
+		temp[i] = '\0';
+		while (summa[i-1] == '0') {
+			summa[i-1] = '\0';
+			i--;
+		}
+		if (summa[0] == '\0') {
+			summa[0] = '0';
+		}
+		copySMirror(avatunTilinSaldo, summa);
+		pFile = fopen(filename, "w");
+		fprintf(pFile, "%s\n%s\n", pw, balance);
+		fclose(pFile);
+		return(0);
+	}
+	
+	
+}
+
+/*void trimLeadingZeros(char trimmattavaTaulukko[]){
+	char tmp[];
+	if (strlen(numero) > 1 && numero[0] == '0') {
+		//KORJAA
+		tmp = numeron luvut indexistä 1 viiva viimeinen;
+		
+		if (strlen(tmp) > 1 && tmp[0] == '0') {
+			tmp = trimLeadingZeros(tmp);
+		}		
+
+	} else {
+		tmp = numero;
+	}
+	
+	if (strlen(tmp) > 1 && tmp[0] == '0') {
+		tmp = trimLeadingZeros(tmp);
+	}
+	
+	return tmp;
+}  */
+ 
+
+/***
+ * talletaRahaa metodi lisää tilille halutun summan rahaa
+ ***/
+void talletaRahaa(int tilinumero, char summa[]){
+    
+	FILE *infilep, *outfilep;
+	char tiliString[10];
+	char avatunTilinSaldo[BUFFER_SIZE];
+	
+	alustaTaulu(avatunTilinSaldo);
+	
+	int avatunTilinTilinumero, viimeinenMerkki;
+	
+	sprintf(tiliString, "%d.tili", tilinumero);
+	
+	
+	if((infilep=fopen(tiliString,"r+"))==NULL){
+		printf("\nTiedoston avaaminen epaonnistui");
+	}else{
+		fscanf(infilep,"%d%s%d",&avatunTilinTilinumero,avatunTilinSaldo, &viimeinenMerkki);
+	} // else
+	
+	fclose(infilep);
+	
+	printf("\n tulostetaan tilin tiedot\n");
+	
+	printf("%d\n",avatunTilinTilinumero);
+	printf("%s\n",avatunTilinSaldo);
+	printf("%d\n",viimeinenMerkki);
+	
+	reverseString(avatunTilinSaldo);
+	reverseString(summa);
+	
+	printf("\n tulostetaan reversestringit\n");
+	printf("%s\n", avatunTilinSaldo);
+	printf("%s\n", summa);
+	
+	char summattuTaulukko[BUFFER_SIZE];
+	alustaTaulu(summattuTaulukko);
+	
+	int avatunPituus,summanPituus, pienempi, isompi,k;
+	avatunPituus = strlen(avatunTilinSaldo);
+	summanPituus = strlen(summa);
+	
+	if (avatunPituus < summanPituus) {     // katsotaan kumpi taulukko on pitempi
+		pienempi = avatunPituus;
+		isompi = summanPituus;
+	}
+	else {
+		pienempi = summanPituus;
+		isompi = avatunPituus;
+	}
+	
+	printf("A: %d\nB: %d\nPienempi: %d\n", avatunPituus, summanPituus, pienempi);
+	
+	
+	int kolmas = 0;
+	
+	for (k = 0; k<255; k++) {
+		if ( k < pienempi ){
+			printf("\n\nKierros %d\n", k);
+			
+			int yhteisSumma, eka, toka;
+			
+			eka = (((int)avatunTilinSaldo[k])-nollanPaikka);
+			toka = (((int)summa[k])-nollanPaikka);
+			yhteisSumma = eka + toka;
+			
+			int jakojaannos = yhteisSumma%10;
+			
+			summattuTaulukko[k] = ((char)(jakojaannos + kolmas + nollanPaikka));
+			
+			kolmas = yhteisSumma/10;
+			
+		} else if ( isompi <= k) {
+			// do nothing;
+		} else if ( summanPituus <= k ) {
+			summattuTaulukko[k] = (char)((int)avatunTilinSaldo[k] + kolmas);
+			kolmas = 0;
+		} else if ( avatunPituus <= k) {
+			summattuTaulukko[k] = (char)((int)summa[k] + kolmas);
+			kolmas = 0;		}
+	}
+	
+	
+	reverseString(summattuTaulukko);
+	printf("Tulostetaan summattuTaulukko\n");
+	printf("%s\n", summattuTaulukko);
+	
+	
+	printf("Tulostetaan tiliString\n");
+	printf("%s\n", tiliString);
+	
+	
+	if((outfilep = fopen(tiliString,"w+"))==NULL){
+		printf("\nTiedoston avaaminen epaonnistui");
+	}else{
+		fprintf(outfilep,"%d\n%s\n",tilinumero,summattuTaulukko);
+	} // else
+	
+	fclose(outfilep);
+	
+	
+	
+	//withdraw(infilep, ptrAvatunTilinSaldo, temp);
+	
+	return;
+	
+} //talletaRahaa
+
+
+
+void tulostaSaldo(int tilinumero){
+	
+	
+	FILE *infilep;
+	char tiliString[10];
+	char avatunTilinSaldo[BUFFER_SIZE];
+	alustaTaulu(avatunTilinSaldo);
+	int avatunTilinTilinumero;
+	
+	sprintf(tiliString, "%d.tili", tilinumero);
+	
+	if((infilep=fopen("1234.tili","r"))==NULL){
+		printf("\nTiedoston avaaminen epaonnistui");
+	}else{
+		fscanf(infilep,"%d%s",&avatunTilinTilinumero,avatunTilinSaldo);
+	} // else
+	
+	if (avatunTilinSaldo[0] == NULL) {
+		printf("Tililläsi ei ole rahaa!\n");
+	}else{
+	    printf("Tilisi saldo on: %s\n	", avatunTilinSaldo);
+	}
+		fclose(infilep);
+	
+	
+}
+
+void emptyBuffer(void) {
+	
+	while( getc(stdin) !='\n');
+	
+}
+
+void copySMirror(char * s1, char * s2) {
+	
+	char *p1, *p2;
+	p2 = s2+strlen(s2)-1;
+	p1 = s1;
+	while(p2 >= s2) {
+		*p1++ = *p2--;
+	}
+	*p1 = '\0';
+}
+
+void reverseString(char* begin){
+    char temp;
+    char* end;
+    end = begin + strlen(begin)-1;
+	
+    while(end>begin){
+        temp = *end;
+        *end = *begin;
+        *begin = temp;
+        end--;
+        begin++;
+    } 
+}
+
+void alustaTaulu(char* begin) {
+	
+	int i;
+	
+	for (i=0; i<BUFFER_SIZE; i++) {
+		begin[i] = NULL;
+	}
+	
+}
+
+
+
