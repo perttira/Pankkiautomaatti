@@ -17,7 +17,9 @@ rahamäärän ruudulle.
 
 ## Use
 
+```
 $ Ohjelman kuvaus ja käyttöohjeet löytyvät "Lopullinen" -kansiosta readme.txt tiedostosta.
+```
 
 ### Locally
 
@@ -25,6 +27,3 @@ $ Ohjelman kuvaus ja käyttöohjeet löytyvät "Lopullinen" -kansiosta readme.tx
 $ go get https://github.com/perttira/pankkiautomaatti
 $ open C-pankkiautomaatti or ./C-pankkiautomaatti
 ```
-
-## Testing
-
